@@ -1,0 +1,64 @@
+﻿@model ViagemCRUDProject.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Create User Account</h2>
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post))
+{
+    <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" name="FirstName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" name="LastName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <select class="form-select form-control" name="Gender">
+            <option value="" selected>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <select class="form-select form-control" name="Country">
+            <option value="" selected>Select country</option>
+            <option value="India">India</option>
+            <option value="Nepal">Nepal</option>
+            <option value="Bangladesh">Bangladesh</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="Email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="Password">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="terms">
+        <label class="form-check-label">Accept terms and condition</label>
+    </div>
+    <div class="mb-3 d-grid">
+        <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+
+    if (TempData["Register User Error"] != null)
+    {
+        <div class="mb-3">
+            <span class="text-danger">@TempData["Register User Error"]</span>
+        </div>
+    }
+    if (TempData["Register User Success"] != null)
+    {
+        <div class="mb-3">
+            <span class="text-success">@TempData["Register User Success"]</span>
+        </div>
+    }
+}

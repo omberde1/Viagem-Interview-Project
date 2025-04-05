@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "LoginAdmin";
+}
+
+<h2>Login Admin</h2>
+
+@using (Html.BeginForm("LoginAdmin", "Home", FormMethod.Post))
+{
+    <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="mb-3 d-grid">
+        <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+    <div class="mb-3">
+        <span>For user @Html.ActionLink("Login here", "LoginUser", "Home")</span>
+        <br />
+        <span>@Html.ActionLink("Back", "Index", "Home")</span>
+    </div>
+    if (TempData["Login Admin Error"] != null)
+    {
+        <div class="mb-3">
+            <span class="text-danger">@TempData["Login Admin Error"]</span>
+        </div>
+    }
+}
+

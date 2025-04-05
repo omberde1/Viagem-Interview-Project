@@ -1,0 +1,40 @@
+﻿@model ViagemCRUDProject.Models.User
+@{
+    ViewBag.Title = "User Delete";
+}
+
+<h2>User Delete</h2>
+
+@using (Html.BeginForm("UserDelete", "Home", FormMethod.Post))
+{
+    <input type="text" name="UserId" value="@Model.UserId" hidden>
+    <input type="text" name="Password" value="@Model.Password" hidden>
+    <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" name="FirstName" value="@Model.FirstName" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" name="LastName" value="@Model.LastName" readonly>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Gender</label>
+        <select class="form-select form-control" name="Gender" disabled>
+            <option value="@Model.Gender" selected>@Model.Gender</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Country</label>
+        <select class="form-select form-control" name="Country" disabled>
+            <option value="@Model.Country" selected>@Model.Country</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="Email" value="@Model.Email" readonly>
+    </div>
+    <div class="mb-3 d-grid">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("AdminOperations", "Home")" class="btn btn-primary">Back</a>
+    </div>
+}

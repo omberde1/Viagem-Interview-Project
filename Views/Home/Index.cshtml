@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@{ 
+    var role = Session["Role"] as string;
+}
+
+@if (role == null)
+{
+    <h1>Welcome guest!</h1>
+}
+else if (role == "Admin")
+{
+    <h1>Welcome @Session["AdminUniqueId"] !</h1>
+}
+else if (role == "User")
+{
+<h1>Welcome @Session["UserEmail"] !</h1>
+
+}
